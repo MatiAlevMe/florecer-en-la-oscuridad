@@ -1,11 +1,12 @@
 import pygame
 import sys
 from player import Player
+from companion import Companion  # Import the Companion class
 
 # Constantes
 SCREEN_WIDTH = 800
 SCREEN_HEIGHT = 600
-TILE_SIZE = 48  # Ajustado según el tamaño de tus sprites
+TILE_SIZE = 48
 
 def main():
     pygame.init()
@@ -14,6 +15,7 @@ def main():
     pygame.display.set_caption("Florecer en la Oscuridad")
 
     player = Player(SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2)
+    companion = Companion(SCREEN_WIDTH // 2 + 50, SCREEN_HEIGHT // 2) # Create companion, offset slightly
     clock = pygame.time.Clock()
 
     running = True
@@ -23,8 +25,10 @@ def main():
                 running = False
 
         player.handle_input()
-        screen.fill((0, 0, 0))  # Rellena con negro
+        companion.update()  # Update the companion (even if it's empty for now)
+        screen.fill((0, 0, 0))
         player.draw(screen)
+        companion.draw(screen)  # Draw the companion
         pygame.display.flip()
         clock.tick(60)
 

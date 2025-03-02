@@ -12,8 +12,8 @@ Próximos Pasos:
     - [x] Añadir animaciones básicas (idle, walk).
 
 2. Implementar el movimiento del compañero (companion.py):
-    - [ ] Crear la clase Companion
-    - [ ] Cargar el sprite del compañero.
+    - [x] Crear la clase Companion
+    - [x] Cargar el sprite del compañero.
     - [ ] Implementar el movimiento automático inicial (seguir al jugador).
     - [ ] Añadir la lógica para el control manual (J, I, K, L) después de desbloquearlo.
 
