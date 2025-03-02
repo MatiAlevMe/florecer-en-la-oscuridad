@@ -1,4 +1,5 @@
 import pygame
+import math  # Import the math module
 
 class Companion:
     def __init__(self, x, y):
@@ -29,8 +30,9 @@ class Companion:
         self.rect = self.image.get_rect(center=(self.x, self.y))
         self.animation_speed = 0.15  # Adjust as needed
         self.animation_timer = 0
-        self.is_moving = False  #  Add is_moving for consistency
-        self.last_direction = "down" # Add last_direction for consistency
+        self.is_moving = False
+        self.last_direction = "down"
+        self.follow_distance = 100  # Distance at which the companion starts following
 
     def load_sprites(self, image_path):
         sprite_sheet = pygame.image.load(image_path)
@@ -48,9 +50,44 @@ class Companion:
             self.image = self.current_frames[self.current_frame]
         screen.blit(self.image, self.rect)
 
-    def update(self):
-        # Placeholder for movement and AI logic.  We'll add follow behavior later.
-        pass
+    def update(self, player_x, player_y):
+        # Follow behavior
+        distance = math.sqrt((player_x - self.x)**2 + (player_y - self.y)**2)
+        self.is_moving = False
+
+        if distance > self.follow_distance:
+            self.is_moving = True
+            dx = player_x - self.x
+            dy = player_y - self.y
+
+            # Normalize the vector
+            angle = math.atan2(dy, dx)  # Use atan2 for correct angle
+            move_x = self.speed * math.cos(angle)
+            move_y = self.speed * math.sin(angle)
+
+            self.x += move_x
+            self.y += move_y
+
+            # Determine direction for animation
+            if abs(move_x) > abs(move_y):  # More horizontal movement
+                if move_x > 0:
+                    self.last_direction = "right_down" if move_y>=0 else "right_up"
+                else:
+                    self.last_direction = "left_down" if move_y>=0 else "left_up"
+            else:  # More vertical movement or equal
+                if move_y > 0:
+                    self.last_direction = "down"
+                else:
+                    self.last_direction = "up"
+
+            self.rect.center = (self.x, self.y)
+
+        # Animation selection
+        if self.is_moving:
+            self.current_frames = self.walk_frames[self.last_direction]
+        else:
+            self.current_frames = self.idle_frames[self.last_direction]
+
 
     def handle_input(self):
         # Placeholder.  Companion input will be handled *after* it's unlocked.

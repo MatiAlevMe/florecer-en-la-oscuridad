@@ -1,7 +1,7 @@
 import pygame
 import sys
 from player import Player
-from companion import Companion  # Import the Companion class
+from companion import Companion
 
 # Constantes
 SCREEN_WIDTH = 800
@@ -15,7 +15,7 @@ def main():
     pygame.display.set_caption("Florecer en la Oscuridad")
 
     player = Player(SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2)
-    companion = Companion(SCREEN_WIDTH // 2 + 50, SCREEN_HEIGHT // 2) # Create companion, offset slightly
+    companion = Companion(SCREEN_WIDTH // 2 + 50, SCREEN_HEIGHT // 2)
     clock = pygame.time.Clock()
 
     running = True
@@ -25,10 +25,10 @@ def main():
                 running = False
 
         player.handle_input()
-        companion.update()  # Update the companion (even if it's empty for now)
+        companion.update(player.x, player.y)  # Pass player's position to companion
         screen.fill((0, 0, 0))
         player.draw(screen)
-        companion.draw(screen)  # Draw the companion
+        companion.draw(screen)
         pygame.display.flip()
         clock.tick(60)
 

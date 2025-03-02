@@ -14,7 +14,7 @@ Próximos Pasos:
 2. Implementar el movimiento del compañero (companion.py):
     - [x] Crear la clase Companion
     - [x] Cargar el sprite del compañero.
-    - [ ] Implementar el movimiento automático inicial (seguir al jugador).
+    - [x] Implementar el movimiento automático inicial (seguir al jugador).
     - [ ] Añadir la lógica para el control manual (J, I, K, L) después de desbloquearlo.
 
 3.  Crear el generador de mapas (map.py):
