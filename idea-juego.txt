@@ -52,17 +52,6 @@ Mini-juego:
 4.  Indicador de Progreso (una clase o función en main.py o un módulo separado)
 5.  Mini-juego de Carrera (racing_minigame.py o similar)
 
-## Desarrollo del Juego (Versión 0.2 con Pygame)
-- [x] Seleccionar Pygame como motor gráfico.
-- [ ] Implementar sprites de personajes.
-- [ ] Crear mapas 2D (carga de imágenes o generación procedural).
-- [ ] Desarrollar sistema de movimiento.
-- [ ] Implementar primer diálogo.
-- [ ] Crear barra de progreso emocional.
-- [ ] Implementar mini-juego de carreras.
-- [ ] Añadir efectos de sonido y música de fondo.
-- [ ] Crear escena final con interacción de personajes.
-
 ## Estilo Sonoro
 - Música: Relajada y melancólica.
 - Efectos de sonido: Chimes suaves que refuercen sensación de logro.
