@@ -1,14 +1,19 @@
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 namespace Controllers
 {
     public class PlayerMovement : MonoBehaviour
     {
         public float speed = 5f;
+        public float dashSpeed = 10f;
+        public float dashDuration = 0.5f;
+        private float dashTimer;
         private Rigidbody2D rb;
         private Animator animator;
         public Transform companionTransform;
         private bool isPlayerControl = true;
+        private bool isDashing = false;
 
         // Parámetros de seguimiento del compañero
         public float companionFollowDistance = 1.5f;
@@ -41,14 +46,37 @@ namespace Controllers
             float vertical = Input.GetAxisRaw(verticalAxis);
 
             Vector2 movement = new Vector2(horizontal, vertical).normalized;
-            
+
+            // Dash input
+            if (Input.GetButtonDown("Dash") && !isDashing)
+            {
+                StartDash(movement);
+            }
+
+            if (isDashing)
+            {
+                dashTimer -= Time.deltaTime;
+                if (dashTimer <= 0)
+                {
+                    StopDash();
+                }
+            }
+
             // Mover el personaje
-            rb.MovePosition(rb.position + movement * speed * Time.deltaTime);
+            if (!isDashing)
+            {
+                rb.MovePosition(rb.position + movement * speed * Time.deltaTime);
+            }
+            else
+            {
+                rb.MovePosition(rb.position + movement * dashSpeed * Time.deltaTime);
+            }
 
             // Actualizar parámetros del Animator
             animator.SetFloat("Horizontal", horizontal);
             animator.SetFloat("Vertical", vertical);
             animator.SetFloat("Speed", movement.magnitude);
+            animator.SetBool("IsDashing", isDashing);
 
             // Lógica de seguimiento del compañero
             if (!isPlayerControl)
@@ -56,6 +84,19 @@ namespace Controllers
                 FollowPlayer();
                 CheckCompanionAdvice();
             }
+        }
+
+        void StartDash(Vector2 direction)
+        {
+            isDashing = true;
+            dashTimer = dashDuration;
+            animator.SetBool("IsDashing", true);
+        }
+
+        void StopDash()
+        {
+            isDashing = false;
+            animator.SetBool("IsDashing", false);
         }
 
         void FollowPlayer()
