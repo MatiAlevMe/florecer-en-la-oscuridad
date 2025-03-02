@@ -7,10 +7,10 @@ class Map:
         self.width = width
         self.height = height
         self.tile_size = tile_size
+        self.previous_tiles = {}  # Inicializa previous_tiles aquí
         self.base_map = self.generate_base_map()
         self.color_map = self.generate_color_map() # Mapa de colores
         self.tileset = self.load_tileset() # Carga los tiles
-        self.previous_tiles = {}  # Para evitar asignar el mismo tile dos veces
 
     def generate_base_map(self):
         # Genera un mapa base usando Perlin Noise
