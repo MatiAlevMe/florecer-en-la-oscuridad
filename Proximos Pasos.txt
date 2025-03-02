@@ -18,13 +18,16 @@ Próximos Pasos:
     - [ ] Añadir la lógica para el control manual (J, I, K, L) después de desbloquearlo.
 
 3.  Crear el generador de mapas (map.py):
-    - [ ] Decidir entre carga de mapas desde archivos de imagen o generación procedural.
-    - [ ] Implementar la lógica para dibujar el mapa en la pantalla.
-    - [ ] Gestionar colisiones (si es necesario).
+    - [x] Decidir entre carga de mapas desde archivos de imagen o generación procedural.
+    - [x] Implementar la lógica para dibujar el mapa en la pantalla.
+    - [x] Gestionar colisiones (si es necesario).
+    - [x] Generación procedural de mapa
+    - [x] Colores distintos basados en el progreso
 
 4. Implementar el sistema de diálogos (dialogue.py):
-    - [ ] Crear una clase o funciones para mostrar texto en la pantalla en formato novela visual al avanzar en la historia.
-    - [ ] Implementar la lógica para mostrar diálogos secuenciales con opciones de elección que por el momento no tendrán repercusiones en la historia mas que entregar distintas respuestas.
+    - [x] Crear una clase o funciones para mostrar texto en la pantalla en formato novela visual al avanzar en la historia.
+    - [x] Implementar la lógica para mostrar diálogos secuenciales con opciones de elección que por el momento no tendrán repercusiones en la historia mas que entregar distintas respuestas.
+    - [x] Implementar el formato de novela visual del dialogo
 
 5. Implementar el sistema de batallas RPG (battle.py - *Nuevo archivo*):
     - [ ] Crear un nuevo archivo `battle.py`.
@@ -61,3 +64,19 @@ Próximos Pasos:
     - [ ] Corregir errores.
 
 Detalle Batallas: Añadir batallas RPG para los primeros 2 niveles, la protagonista contra uno de sus demonios, un dialogo luego una batalla contra un jefe, luego otro dialogo que desbloquea al acompañante como personaje jugable y finalmente el acompañante se une a la protagonista y juegan al minijuego de carreras lo que desbloquea el dialogo final para pasar a la escena final.
+
+Workflow:
+    - [x] La pantalla empieza con la protagonista y su acompañante que se mueven juntos en la pantalla. El jugador tiene control de la protagonista, mientras que el acompañante la sigue de manera automatica.
+    - [x] Al comenzar el juego y moverse un poco por el mapa se activa el primer dialogo, los dialogos pasan a un formato de novela visual en otra pantalla.
+    - [ ] Al terminafr el primer dialogo se pasa a la primera batalla con el demonio interno de la protagonista.
+    - [ ] La protagonista tiene opción de atacar, defender, habilidad especial y curación, pero no puede huir, al hacer click en ella aparece un mensaje de "Error: No puedes escapar de tus demonios"
+    - [ ] Al ganar la batalla se vuelve al mapa de movimiento en donde se pueden apreciar colores mas vividos. Al avanzar un poco por el mapa se ve como a veces aparecen colores verdosos y rosa al caminar, mostrando el progreso de la protagonista.
+    - [ ] Al avanzar un poco por el mapa se desbloquea la segunda escena de dialogo de novela visual.
+    - [ ] Al terminar el dialogo se pasa a la segunda batalla con el demonio interno de la protagonista, este es el jefe final de la versión prototipo.
+    - [ ] Al ganar se pasa a otro dialogo en formato novela visual.
+    - [ ] Al terminar el dialogo se desbloquea al acompañante como personaje jugable que se mueve con las teclas i,j,k,l.
+    - [ ] Al desbloquearlo aparecera un pequeño auto en el mapa, al colisionar con el se desbloquea el mini-juego de carreras.
+    - [ ] Al ganar este mini-juego se desbloquea la escena final en formato novela visual.
+    - [ ] Al terminar el dialogo se muestra el mapa evolucionado con colores mas vividos.
+    - [ ] Al avanzar por el mapa se van desbloqueando pequeños girasoles y rosas en el mapa. Esta parte del juego se puede jugar indefinidamente.
+    - [ ] Al avanzar un poco por el mapa y generar un par de girasoles y rosas aparecera un boton de "Ver creditos" en donde se muestra una pantalla de creditos que es el final del juego y un poema dedicado a mi pareja.
