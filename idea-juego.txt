@@ -48,7 +48,7 @@ Mini-juego:
 ## Componentes Técnicos a Desarrollar
 1.  Script de Movimiento del Personaje (player.py)
 2.  Generador de Mapas (map.py)
-3.  Sistema de Diálogos (dialogue.py)
+3.  Sistema de Diálogos por novela visual que suceden al avanzar en la historia (dialogue.py)
 4.  Indicador de Progreso (una clase o función en main.py o un módulo separado)
 5.  Mini-juego de Carrera (racing_minigame.py o similar)
 
@@ -56,6 +56,26 @@ Mini-juego:
 - Música: Relajada y melancólica.
 - Efectos de sonido: Chimes suaves que refuercen sensación de logro.
 - Integración de audio usando el módulo `mixer` de Pygame.
+
+## Workflow de las escenas del juego
+1. La pantalla empieza con la protagonista y su acompañante que se mueven juntos en la pantalla. El jugador tiene control de la protagonista, mientras que el acompañante la sigue de manera automatica.
+2. Al comenzar el juego y moverse un poco por el mapa se activa el primer dialogo, los dialogos pasan a un formato de novela visual en otra pantalla.
+3. Al terminafr el primer dialogo se pasa a la primera batalla con el demonio interno de la protagonista.
+4. La protagonista tiene opción de atacar, defender, habilidad especial y curación, pero no puede huir, al hacer click en ella aparece un mensaje de "Error: No puedes escapar de tus demonios"
+5. Al ganar la batalla se vuelve al mapa de movimiento en donde se pueden apreciar colores mas vividos. Al avanzar un poco por el mapa se ve como a veces aparecen colores verdosos y rosa al caminar, mostrando el progreso de la protagonista.
+6. Al avanzar un poco por el mapa se desbloquea la segunda escena de dialogo de novela visual. 
+7. Al terminar el dialogo se pasa a la segunda batalla con el demonio interno de la protagonista, este es el jefe final de la versión prototipo.
+8. Al ganar se pasa a otro dialogo en formato novela visual.
+9. Al terminar el dialogo se desbloquea al acompañante como personaje jugable que se mueve con las teclas i,j,k,l.
+10. Al desbloquearlo aparecera un pequeño auto en el mapa, al colisionar con el se desbloquea el mini-juego de carreras.
+11. Al ganar este mini-juego se desbloquea la escena final en formato novela visual.
+12. Al terminar el dialogo se muestra el mapa evolucionado con colores mas vividos.
+13. Al avanzar por el mapa se van desbloqueando pequeños girasoles y rosas en el mapa. Esta parte del juego se puede jugar indefinidamente.
+14. Al avanzar un poco por el mapa y generar un par de girasoles y rosas aparecera un boton de "Ver creditos" en donde se muestra una pantalla de creditos que es el final del juego y un poema dedicado a mi pareja.
+
+## Funcionalidad especifica
+Mapa: Se genera automaticamente y los colores van variando a medida que se progresa en el juego.
+Mapa: El mapa no se acaba al llegar al final de la pantalla en cualquier extremo se sigue avanzando, la camara se mueve con los protagonistas.
 
 ## Notas Finales
 El objetivo es crear una experiencia emotiva que represente el crecimiento personal, utilizando las herramientas y funciones de Pygame para construir una narrativa visual e interactiva.
