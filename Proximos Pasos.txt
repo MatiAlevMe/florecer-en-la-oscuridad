@@ -1,18 +1,64 @@
 Próximos Pasos:
 
-0. Resolver errores y otras cosas
-    - Añadir el movimiento del personaje que siga a la protagonista de manera automatica hasta que el acompañante se desbloquee en ese momento se puede mover de manera manual.
-1. Implementar sistema de batallas RPG:
-    - Crear scripts para la lógica de combate (BattleManager, CharacterStats).
-    - Implementar turnos, ataque, defensa y muerte.
-    - Crear scripts para los demonios y el jefe.
+0. Configuración Inicial:
+    - Instalar Pygame (`pip install pygame`).
+    - Crear la estructura básica de directorios y archivos (`main.py`, `player.py`, etc.).
+    - Inicializar la ventana de Pygame en `main.py`.
+
+1. Implementar el movimiento del personaje principal (player.py):
+    - Cargar el sprite del jugador.
+    - Gestionar la entrada del teclado (W, A, S, D).
+    - Actualizar la posición del jugador en la pantalla.
+    - Añadir animaciones básicas (idle, walk).
+
+2. Implementar el movimiento del compañero (companion.py):
+   -  Crear la clase Companion
+    - Cargar el sprite del compañero.
+    - Implementar el movimiento automático inicial (seguir al jugador).
+    - Añadir la lógica para el control manual (J, I, K, L) después de desbloquearlo.
+
+3.  Crear el generador de mapas (map.py):
+    -  Decidir entre carga de mapas desde archivos de imagen o generación procedural.
+    -  Implementar la lógica para dibujar el mapa en la pantalla.
+    -  Gestionar colisiones (si es necesario).
+
+4. Implementar el sistema de diálogos (dialogue.py):
+    - Crear una clase o funciones para mostrar texto en la pantalla.
+    - Implementar la lógica para mostrar diálogos secuenciales.
+    - Integrar los diálogos con el movimiento del compañero (consejos iniciales).
+
+5. Implementar el sistema de batallas RPG (battle.py - *Nuevo archivo*):
+    - Crear un nuevo archivo `battle.py`.
+    - Crear clases para `Character` (jugador y enemigos).
+    - Implementar la lógica de combate por turnos (ataque, defensa, etc.).
+    - Mostrar la información de la batalla en la pantalla (salud, etc.).
     - Implementar diálogos antes y después de la batalla.
-    - Implementar la lógica para desbloquear al compañero.
-    - Detalle: Añadir batallas RPG para los primeros 2 niveles, la protagonista contra uno de sus demoonios, un dialogo luego una batalla contra un jefe, luego otro dialogo que desbloquea al acompañante como personaje jugable y finalmente el acompañante se une a la protagonista y juegan al minijuego de carreras lo que desbloquea el dialogo final para pasar a la escena final.
-2. Crear la escena final:
-    - Añadir los GameObjects del jugador y del compañero.
-    - Implementar la lógica para que los personajes se muevan.
-    - Implementar la lógica para iluminar el mapa.
-    - Detalle: En la escena final el protagonista y el acompañante ambos jugables se pueden mover por el mapa e ir iluminando con girasoles, rosas, y elementos coloridos el mapa al caminar por cualquier parte.
-3. Integrar la barra de progreso emocional en la jugabilidad.
-4. Testear y pulir el juego.
+    - Implementar la lógica para desbloquear al compañero después de la batalla final del segundo nivel.
+
+6. Crear la escena final:
+    - Cargar/crear el mapa de la escena final.
+    - Colocar a los personajes en el mapa.
+    - Implementar la lógica de movimiento para ambos personajes.
+    - Implementar la lógica para "iluminar" el mapa (cambiar sprites, añadir efectos visuales).
+
+7. Integrar la barra de progreso emocional:
+    - Crear una representación visual de la barra (puede ser una imagen o una forma dibujada con Pygame).
+    - Actualizar la barra en función del progreso del jugador.
+
+8.  Implementar el mini-juego de carreras (racing_minigame.py):
+    -  Crear un nuevo archivo si es necesario.
+    -  Implementar la lógica básica de movimiento de los coches.
+    -  Añadir controles.
+    -  Detectar la línea de meta.
+
+9. Añadir efectos de sonido y música:
+    - Cargar los archivos de audio.
+    - Reproducir música de fondo en bucle.
+    - Reproducir efectos de sonido en los momentos apropiados.
+
+10. Testear y pulir el juego:
+    - Realizar pruebas exhaustivas de todas las mecánicas.
+    - Ajustar la dificultad y el ritmo del juego.
+    - Corregir errores.
+
+Detalle Batallas: Añadir batallas RPG para los primeros 2 niveles, la protagonista contra uno de sus demonios, un dialogo luego una batalla contra un jefe, luego otro dialogo que desbloquea al acompañante como personaje jugable y finalmente el acompañante se une a la protagonista y juegan al minijuego de carreras lo que desbloquea el dialogo final para pasar a la escena final.

@@ -1,30 +1,27 @@
 # Florecer en la Oscuridad - Dedicado a Valentina la más bella
-Estoy desarrollando un juego de aventuras en 2D llamado "Florecer en la Oscuridad" utilizando Unity con C#.
+Estoy desarrollando un juego de aventuras en 2D llamado "Florecer en la Oscuridad" utilizando Python con Pygame.
 
 ## Tecnología de Desarrollo
-- Motor Gráfico: Unity
-- Lenguaje de Programación: C#
+- Motor Gráfico: Pygame
+- Lenguaje de Programación: Python
 - Tipo de Juego: RPG 2D de Aventuras
 
 ## Estructura del Proyecto
 FlorecerEnLaOscuridad/
-├── Assets/
-│   ├── Sprites/
-│   │   ├── Player/
-│   │   └── Companion/
-│   ├── Maps/
-│   │   └── TilemapAssets/
-│   ├── Audio/
-│   │   ├── Music/
-│   │   └── SFX/
-│   ├── Scenes/
-│   │   └── MainScene.unity
-│   └── Scripts/
-│       ├── Controllers/
-│       ├── Managers/
-│       └── Components/
-├── Project Settings/
-└── README.md
+├── sprites/
+│   ├── player.png
+│   ├── companion.png
+│   └── ...
+├── sounds/
+│   ├── music.mp3
+│   ├── sfx.wav
+│   └── ...
+├── main.py
+├── player.py
+├── companion.py
+├── map.py
+├── dialogue.py
+└── ...
 
 ## Estilo Visual y Estético
 Colores principales: Rosa y verde claro, con transiciones de ambientes oscuros y apagados a escenarios vibrantes y llenos de vida.
@@ -34,42 +31,42 @@ Efectos visuales: Un cambio gradual en el entorno (de oscuro a brillante), con e
 
 ## Jugabilidad y Mecánicas
 Movimiento:
-- Implementado con Input.GetAxis en Unity
-- La protagonista se mueve con W, A, S, D
-- El compañero, una vez desbloqueado, se mueve con J, I, K, L
+- Implementado con eventos de teclado en Pygame.
+- La protagonista se mueve con W, A, S, D.
+- El compañero, una vez desbloqueado, se mueve con J, I, K, L.
 
 Progresión:
-- Implementar un Slider de Unity para la barra de progreso emocional
-- El compañero primero actúa como guía con diálogos y consejos
-- Sistema de diálogos usando UI de Unity
-- Superar desafíos desbloquea nuevas áreas más coloridas
+- Implementar una barra de progreso visual (puede ser una simple barra de color).
+- El compañero primero actúa como guía con diálogos y consejos.
+- Sistema de diálogos usando superficies de texto de Pygame.
+- Superar desafíos desbloquea nuevas áreas más coloridas.
 
 Mini-juego:
-- Carrera de Fórmula 1 implementado como mini-juego en Unity
-- Sincronización entre personajes usando scripts de movimiento
+- Carrera de Fórmula 1 implementado como mini-juego en Pygame.
+- Sincronización entre personajes usando lógica de movimiento.
 
 ## Componentes Técnicos a Desarrollar
-1. Script de Movimiento del Personaje (PlayerMovement.cs)
-2. Generador de Mapas (MapGenerator.cs)
-3. Sistema de Diálogos (DialogueManager.cs)
-4. Indicador de Progreso (ProgressIndicator.cs)
-5. Mini-juego de Carrera (RacingMinigame.cs)
+1.  Script de Movimiento del Personaje (player.py)
+2.  Generador de Mapas (map.py)
+3.  Sistema de Diálogos (dialogue.py)
+4.  Indicador de Progreso (una clase o función en main.py o un módulo separado)
+5.  Mini-juego de Carrera (racing_minigame.py o similar)
 
-## Desarrollo del Juego (Versión 0.2 con Unity)
-- [x] Seleccionar Unity como motor gráfico
-- [ ] Implementar sprites de personajes
-- [ ] Crear mapas 2D con Tilemap
-- [ ] Desarrollar sistema de movimiento
-- [ ] Implementar primer diálogo
-- [ ] Crear barra de progreso emocional
-- [ ] Implementar mini-juego de carreras
-- [ ] Añadir efectos de sonido y música de fondo
-- [ ] Crear escena final con interacción de personajes
+## Desarrollo del Juego (Versión 0.2 con Pygame)
+- [x] Seleccionar Pygame como motor gráfico.
+- [ ] Implementar sprites de personajes.
+- [ ] Crear mapas 2D (carga de imágenes o generación procedural).
+- [ ] Desarrollar sistema de movimiento.
+- [ ] Implementar primer diálogo.
+- [ ] Crear barra de progreso emocional.
+- [ ] Implementar mini-juego de carreras.
+- [ ] Añadir efectos de sonido y música de fondo.
+- [ ] Crear escena final con interacción de personajes.
 
 ## Estilo Sonoro
-- Música: Relajada y melancólica
-- Efectos de sonido: Chimes suaves que refuercen sensación de logro
-- Integración de audio usando AudioSource en Unity
+- Música: Relajada y melancólica.
+- Efectos de sonido: Chimes suaves que refuercen sensación de logro.
+- Integración de audio usando el módulo `mixer` de Pygame.
 
 ## Notas Finales
-El objetivo es crear una experiencia emotiva que represente el crecimiento personal, utilizando las herramientas y scripts de Unity para construir una narrativa visual e interactiva.
+El objetivo es crear una experiencia emotiva que represente el crecimiento personal, utilizando las herramientas y funciones de Pygame para construir una narrativa visual e interactiva.
