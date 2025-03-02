@@ -23,9 +23,8 @@ Próximos Pasos:
     - [ ] Gestionar colisiones (si es necesario).
 
 4. Implementar el sistema de diálogos (dialogue.py):
-    - [ ] Crear una clase o funciones para mostrar texto en la pantalla.
-    - [ ] Implementar la lógica para mostrar diálogos secuenciales.
-    - [ ] Integrar los diálogos con el movimiento del compañero (consejos iniciales).
+    - [ ] Crear una clase o funciones para mostrar texto en la pantalla en formato novela visual al avanzar en la historia.
+    - [ ] Implementar la lógica para mostrar diálogos secuenciales con opciones de elección que por el momento no tendrán repercusiones en la historia mas que entregar distintas respuestas.
 
 5. Implementar el sistema de batallas RPG (battle.py - *Nuevo archivo*):
     - [ ] Crear un nuevo archivo `battle.py`.
