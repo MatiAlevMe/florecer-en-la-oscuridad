@@ -1,5 +1,21 @@
 # Florecer en la Oscuridad - Dedicado a Valentina la más bella
-Estoy desarrollando un juego de aventuras en 2D llamado "Florecer en la Oscuridad". La historia sigue a una joven que inicia en un mundo oscuro y solitario, pero a medida que avanza descubre esperanza y belleza. Eventualmente, conoce a un compañero que la ayuda a superar obstáculos y encontrar la luz.
+Estoy desarrollando un juego de aventuras en 2D llamado "Florecer en la Oscuridad" utilizando Unity con C#.
+
+## Tecnología de Desarrollo
+- Motor Gráfico: Unity
+- Lenguaje de Programación: C#
+- Tipo de Juego: RPG 2D de Aventuras
+
+## Estructura del Proyecto
+FlorecerEnLaOscuridad/
+├── Assets/
+│   ├── Sprites/
+│   ├── Maps/
+│   ├── Audio/
+│   ├── Scenes/
+│   └── Scripts/
+├── Project Settings/
+└── README.md
 
 ## Estilo Visual y Estético
 Colores principales: Rosa y verde claro, con transiciones de ambientes oscuros y apagados a escenarios vibrantes y llenos de vida.
@@ -9,38 +25,42 @@ Efectos visuales: Un cambio gradual en el entorno (de oscuro a brillante), con e
 
 ## Jugabilidad y Mecánicas
 Movimiento:
-La protagonista se mueve con W, A, S, D.
-El compañero, una vez desbloqueado, se mueve con J, I, K, L.
+- Implementado con Input.GetAxis en Unity
+- La protagonista se mueve con W, A, S, D
+- El compañero, una vez desbloqueado, se mueve con J, I, K, L
 
 Progresión:
-El compañero primero actúa como guía con diálogos y consejos antes de unirse a la protagonista.
-Superar desafíos desbloquea nuevas áreas más coloridas.
-Una barra de progreso refleja el crecimiento emocional de la protagonista.
+- Implementar un Slider de Unity para la barra de progreso emocional
+- El compañero primero actúa como guía con diálogos y consejos
+- Sistema de diálogos usando UI de Unity
+- Superar desafíos desbloquea nuevas áreas más coloridas
 
 Mini-juego:
-Carreras: Una competencia de Fórmula 1 donde ambos deben sincronizarse para esquivar obstáculos.
+- Carrera de Fórmula 1 implementado como mini-juego en Unity
+- Sincronización entre personajes usando scripts de movimiento
 
-Mensajes y Aprendizaje:
-Cada desafío entrega una enseñanza relacionada con la independencia, la superación y el crecimiento personal.
-Algunos mensajes aparecen en pantalla como recordatorios motivacionales.
+## Componentes Técnicos a Desarrollar
+1. Script de Movimiento del Personaje (PlayerMovement.cs)
+2. Generador de Mapas (MapGenerator.cs)
+3. Sistema de Diálogos (DialogueManager.cs)
+4. Indicador de Progreso (ProgressIndicator.cs)
+5. Mini-juego de Carrera (RacingMinigame.cs)
 
-Final del Juego:
-Una vez completados todos los desafíos, el mundo florece con girasoles, rosas y otros elementos naturales.
+## Desarrollo del Juego (Versión 0.2 con Unity)
+- [x] Seleccionar Unity como motor gráfico
+- [ ] Implementar sprites de personajes
+- [ ] Crear mapas 2D con Tilemap
+- [ ] Desarrollar sistema de movimiento
+- [ ] Implementar primer diálogo
+- [ ] Crear barra de progreso emocional
+- [ ] Implementar mini-juego de carreras
+- [ ] Añadir efectos de sonido y música de fondo
+- [ ] Crear escena final con interacción de personajes
 
-Estilo Sonoro:
-Música: Relajada y melancólica, dame la opción de agregar una canción de fondo.
-Efectos de sonido: Pequeños chimes o sonidos suaves que refuercen la sensación de calidez y logro.
+## Estilo Sonoro
+- Música: Relajada y melancólica
+- Efectos de sonido: Chimes suaves que refuercen sensación de logro
+- Integración de audio usando AudioSource en Unity
 
-Desarollo del juego en la versión 0.1
-- Quiero implementar sprites de mi personaje y mi pareja.
-- Quiero implementar mapas 2d simples para el juego, los minijuegos y las batallas RPG con el demonio y el jefe.
-- Quiero implementar el primer minijuego, que es una carrera de formula 1.
-- Quiero implementar el primer dialogo entre mi personaje y mi pareja.
-- Quiero implementar la barra de progreso que refleja el crecimiento emocional de mi personaje.
-- Quiero implementar el estilo de arte minimalista y en pocos colores, empezar con tonos oscuros e ir terminando con tonos mucho mas claros.
-- Quiero implementar la música de fondo y los efectos de sonido.
-- Quiero implementar el final del juego, que es una escena donde mi personaje y mi pareja se dan la mano y se sienten felices y pueden avanzar en el juego creando nuevas flores como girasoles y rosas al moverse por el mapa.
-- Quiero que el juego sea un RPG donde la protagonista se enfrente a sus demonios y yo la acompañe en el primer nivel.
-- Al superar el primer nivel habrá un dialogó con el acompañante y se abrira otro nivel.
-- Al pasar al otro nivel se enfrentara a un jefe, pero esta vez al finalizar habrá una escena de dialogo con el acompañante en donde se desbloqueara como personaje jugable.
-- Luego se pasara al siguiente nivel que sera el mini juego de formula 1. Al finalizar esto habrá un dialogo final entre los protagonistas y se pasara a la escena final.
+## Notas Finales
+El objetivo es crear una experiencia emotiva que represente el crecimiento personal, utilizando las herramientas y scripts de Unity para construir una narrativa visual e interactiva.
