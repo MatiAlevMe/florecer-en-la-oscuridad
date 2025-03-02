@@ -9,7 +9,7 @@ Próximos Pasos:
     - [x] Cargar el sprite del jugador.
     - [x] Gestionar la entrada del teclado (W, A, S, D).
     - [x] Actualizar la posición del jugador en la pantalla.
-    - [ ] Añadir animaciones básicas (idle, walk).  <- *Animación idle implementada, falta walk*
+    - [x] Añadir animaciones básicas (idle, walk).
 
 2. Implementar el movimiento del compañero (companion.py):
     - [ ] Crear la clase Companion
