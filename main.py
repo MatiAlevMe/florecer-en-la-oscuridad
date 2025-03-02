@@ -42,9 +42,11 @@ def main():
         ],
         #Añade mas dialogos aqui
     }
-    
+
     camera_x = 0
     camera_y = 0
+
+    dialogue_started = False  # Variable para controlar si el diálogo ya se inició
 
     running = True
     while running:
@@ -61,23 +63,25 @@ def main():
         if current_state == STATE_EXPLORING:
             player.handle_input()
             companion.update(player.x, player.y)
-            #Centrar la camara
+            # Centrar la camara
             camera_x = player.x - SCREEN_WIDTH // 2
             camera_y = player.y - SCREEN_HEIGHT // 2
 
             # --- LOGICA DE PROGRESO (ejemplo) ---
-            if player.x > 100 and dialogue_manager.current_dialogue is None:  # Evento de inicio
+            # Usa una combinación de posición y la variable dialogue_started
+            if player.x > SCREEN_WIDTH // 2 + 100 and not dialogue_started:
                 dialogue_manager.start_dialogue(dialogues["start"])
                 current_state = STATE_DIALOGUE
+                dialogue_started = True  # Marca el diálogo como iniciado
 
-            #Ejemplo de iluminacion
+            # Ejemplo de iluminacion
             game_map.illuminate(player.x // TILE_SIZE, player.y // TILE_SIZE, 5, 1)
 
 
         screen.fill((0, 0, 0))  # Llena la pantalla de negro
         game_map.draw(screen, camera_x, camera_y) #Dibuja mapa
-        player.draw(screen)
-        companion.draw(screen)
+        player.draw(screen, camera_x, camera_y) #Dibuja player con offset de camara
+        companion.draw(screen, camera_x, camera_y) #Dibuja player con offset de camara
 
         if current_state == STATE_DIALOGUE:
             dialogue_manager.update()

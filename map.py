@@ -10,6 +10,7 @@ class Map:
         self.base_map = self.generate_base_map()
         self.color_map = self.generate_color_map() # Mapa de colores
         self.tileset = self.load_tileset() # Carga los tiles
+        self.previous_tiles = {}  # Para evitar asignar el mismo tile dos veces
 
     def generate_base_map(self):
         # Genera un mapa base usando Perlin Noise
@@ -19,12 +20,18 @@ class Map:
             for y in range(self.height):
                 value = noise.pnoise2(x * scale, y * scale, octaves=4, persistence=0.5, lacunarity=2.0)
                 # Ajusta los umbrales para determinar el tipo de tile
+                tile_type = 0  # Valor por defecto
                 if value < -0.2:
-                    world_map[y][x] = 0  # Agua/Vacío
+                    tile_type = 0  # Agua/Vacío
                 elif value < 0.1:
-                    world_map[y][x] = 1  # Tierra/Pasto
+                    tile_type = 1  # Tierra/Pasto
                 else:
-                    world_map[y][x] = 2  # Montaña/Roca
+                    tile_type = 2  # Montaña/Roca
+
+                # Evita asignar el mismo tile dos veces (aunque es poco probable)
+                if (x, y) not in self.previous_tiles or self.previous_tiles[(x, y)] != tile_type:
+                    world_map[y][x] = tile_type
+                    self.previous_tiles[(x, y)] = tile_type
 
         return world_map
 

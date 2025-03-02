@@ -9,7 +9,7 @@ class DialogueManager:
         self.dialogue_box_rect = pygame.Rect(50, screen.get_height() - 200, screen.get_width() - 100, 150)
         self.current_dialogue = None
         self.current_line_index = 0
-        self.typing_speed = 30  # Caracteres por segundo
+        self.typing_speed = 120  # Caracteres por segundo.  Aumentado para mayor velocidad.
         self.current_typed_text = ""
         self.last_update_time = 0
         self.finished_typing = False

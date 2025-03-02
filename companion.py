@@ -42,13 +42,13 @@ class Companion:
             frames.append(frame)
         return frames
 
-    def draw(self, screen):
+    def draw(self, screen, camera_x, camera_y):
         self.animation_timer += 1
         if self.animation_timer >= 60 * self.animation_speed:
             self.animation_timer = 0
             self.current_frame = (self.current_frame + 1) % len(self.current_frames)
             self.image = self.current_frames[self.current_frame]
-        screen.blit(self.image, self.rect)
+        screen.blit(self.image, (self.rect.x - camera_x, self.rect.y - camera_y))
 
     def update(self, player_x, player_y):
         # Follow behavior
