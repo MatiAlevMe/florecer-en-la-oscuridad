@@ -1,14 +1,18 @@
 Próximos Pasos:
 
+0. Resolver errores y otras cosas
+    - Añadir el movimiento del personaje que siga a la protagonista de manera automatica hasta que el acompañante se desbloquee en ese momento se puede mover de manera manual.
 1. Implementar sistema de batallas RPG:
     - Crear scripts para la lógica de combate (BattleManager, CharacterStats).
     - Implementar turnos, ataque, defensa y muerte.
     - Crear scripts para los demonios y el jefe.
     - Implementar diálogos antes y después de la batalla.
     - Implementar la lógica para desbloquear al compañero.
+    - Detalle: Añadir batallas RPG para los primeros 2 niveles, la protagonista contra uno de sus demoonios, un dialogo luego una batalla contra un jefe, luego otro dialogo que desbloquea al acompañante como personaje jugable y finalmente el acompañante se une a la protagonista y juegan al minijuego de carreras lo que desbloquea el dialogo final para pasar a la escena final.
 2. Crear la escena final:
     - Añadir los GameObjects del jugador y del compañero.
     - Implementar la lógica para que los personajes se muevan.
     - Implementar la lógica para iluminar el mapa.
+    - Detalle: En la escena final el protagonista y el acompañante ambos jugables se pueden mover por el mapa e ir iluminando con girasoles, rosas, y elementos coloridos el mapa al caminar por cualquier parte.
 3. Integrar la barra de progreso emocional en la jugabilidad.
 4. Testear y pulir el juego.
