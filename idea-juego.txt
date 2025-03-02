@@ -10,10 +10,19 @@ Estoy desarrollando un juego de aventuras en 2D llamado "Florecer en la Oscurida
 FlorecerEnLaOscuridad/
 ├── Assets/
 │   ├── Sprites/
+│   │   ├── Player/
+│   │   └── Companion/
 │   ├── Maps/
+│   │   └── TilemapAssets/
 │   ├── Audio/
+│   │   ├── Music/
+│   │   └── SFX/
 │   ├── Scenes/
+│   │   └── MainScene.unity
 │   └── Scripts/
+│       ├── Controllers/
+│       ├── Managers/
+│       └── Components/
 ├── Project Settings/
 └── README.md
 
