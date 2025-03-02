@@ -71,5 +71,21 @@ Mini-juego:
 - Efectos de sonido: Chimes suaves que refuercen sensación de logro
 - Integración de audio usando AudioSource en Unity
 
+## Proximos Pasos
+ 1 Añadir sonido y música:                                                                                                                               
+    • Añade música de fondo                                                                                                                              
+    • Añade efectos de sonido para los eventos principales                                                                                               
+ 2 Añadir animaciones:                                                                                                                                   
+    • Añade animaciones para el jugador                                                                                                                  
+    • Añade animaciones para el compañero                                                                                                                
+ 3 Testear la funcionalidad:                                                                                                                             
+    • Prueba el movimiento del jugador                                                                                                                   
+    • Prueba el diálogo                                                                                                                                  
+    • Prueba la barra de progreso                                                                                                                        
+    • Prueba el mini-juego de carreras  
+4 Añadir el movimiento del acompañante que siga a la protagonista y entregue distintos consejos a la misma antes de ser desbloqueado
+5 Añadir sprites a los personajes del protagonista y el acompañante
+6 Añadir batallas RPG para los primeros 2 niveles, la protagonista contra uno de sus demoonios, un dialogo luego una batalla contra un jefe, luego otro dialogo que desbloquea al acompañante como personaje jugable y finalmente el acompañante se une a la protagonista y juegan al minijuego de carreras lo que desbloquea el dialogo final para pasar a la escena final donde el protagonista y el acompañante ambos jugables se pueden mover por el mapa e ir iluminando con girasoles, rosas, y elementos coloridos el mapa al caminar por cualquier parte.
+
 ## Notas Finales
 El objetivo es crear una experiencia emotiva que represente el crecimiento personal, utilizando las herramientas y scripts de Unity para construir una narrativa visual e interactiva.
