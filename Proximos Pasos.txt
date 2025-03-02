@@ -1,0 +1,14 @@
+Próximos Pasos:
+
+1. Implementar sistema de batallas RPG:
+    - Crear scripts para la lógica de combate (BattleManager, CharacterStats).
+    - Implementar turnos, ataque, defensa y muerte.
+    - Crear scripts para los demonios y el jefe.
+    - Implementar diálogos antes y después de la batalla.
+    - Implementar la lógica para desbloquear al compañero.
+2. Crear la escena final:
+    - Añadir los GameObjects del jugador y del compañero.
+    - Implementar la lógica para que los personajes se muevan.
+    - Implementar la lógica para iluminar el mapa.
+3. Integrar la barra de progreso emocional en la jugabilidad.
+4. Testear y pulir el juego.
