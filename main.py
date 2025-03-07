@@ -55,6 +55,8 @@ def main():
                 running = False
             if event.type == pygame.KEYDOWN:
                 if current_state == STATE_DIALOGUE:
+                    if event.key == pygame.K_SPACE:  # Cambiado a Espacio
+                        dialogue_manager.handle_option_selected()
                     if event.key == pygame.K_RETURN:
                         dialogue_manager.next_line()
                         if dialogue_manager.current_dialogue is None:
@@ -63,25 +65,30 @@ def main():
         if current_state == STATE_EXPLORING:
             player.handle_input()
             companion.update(player.x, player.y)
-            # Centrar la camara
+
+            # --- Lógica de la cámara (con límites) ---
             camera_x = player.x - SCREEN_WIDTH // 2
             camera_y = player.y - SCREEN_HEIGHT // 2
 
+            # Limita el movimiento de la cámara
+            camera_x = max(0, min(camera_x, game_map.width * TILE_SIZE - SCREEN_WIDTH))
+            camera_y = max(0, min(camera_y, game_map.height * TILE_SIZE - SCREEN_HEIGHT))
+
+
             # --- LOGICA DE PROGRESO (ejemplo) ---
-            # Usa una combinación de posición y la variable dialogue_started
             if player.x > SCREEN_WIDTH // 2 + 100 and not dialogue_started:
                 dialogue_manager.start_dialogue(dialogues["start"])
                 current_state = STATE_DIALOGUE
                 dialogue_started = True  # Marca el diálogo como iniciado
 
-            # Ejemplo de iluminacion
+            # Ejemplo de iluminacion (con superficie alpha)
             game_map.illuminate(player.x // TILE_SIZE, player.y // TILE_SIZE, 5, 1)
 
 
         screen.fill((0, 0, 0))  # Llena la pantalla de negro
         game_map.draw(screen, camera_x, camera_y) #Dibuja mapa
-        player.draw(screen, camera_x, camera_y) #Dibuja player con offset de camara
-        companion.draw(screen, camera_x, camera_y) #Dibuja player con offset de camara
+        player.draw(screen, camera_x, camera_y)
+        companion.draw(screen, camera_x, camera_y)
 
         if current_state == STATE_DIALOGUE:
             dialogue_manager.update()

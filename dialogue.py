@@ -9,7 +9,7 @@ class DialogueManager:
         self.dialogue_box_rect = pygame.Rect(50, screen.get_height() - 200, screen.get_width() - 100, 150)
         self.current_dialogue = None
         self.current_line_index = 0
-        self.typing_speed = 120  # Caracteres por segundo.  Aumentado para mayor velocidad.
+        self.typing_speed = 240  # Caracteres por segundo.  Aumentado para mayor velocidad.
         self.current_typed_text = ""
         self.last_update_time = 0
         self.finished_typing = False
@@ -37,7 +37,7 @@ class DialogueManager:
             if current_time - self.last_update_time > 1000 / self.typing_speed:
                 if self.current_line_index < len(self.current_dialogue):
                     current_line = self.current_dialogue[self.current_line_index]
-                    
+
                     #Si es una lista es una opcion
                     if isinstance(current_line, list):
                         self.show_options = True
@@ -59,7 +59,17 @@ class DialogueManager:
                         self.last_update_time = current_time
                     else:
                         self.finished_typing = True
-        
+                else:
+                    self.finished_typing = True #Asegura que se termine
+
+            # Mostrar todo el texto si se presiona Enter
+            if pygame.key.get_pressed()[pygame.K_RETURN]:
+                if self.current_line_index < len(self.current_dialogue):
+                    current_line = self.current_dialogue[self.current_line_index]
+                    if not isinstance(current_line, list) and not (isinstance(current_line, dict) and "options" in current_line):
+                        self.current_typed_text = current_line
+                self.finished_typing = True
+
         #Seleccion de opciones con teclado
         if self.show_options:
             keys = pygame.key.get_pressed()
@@ -69,8 +79,7 @@ class DialogueManager:
             elif keys[pygame.K_DOWN]:
                 self.selected_option = (self.selected_option + 1) % len(self.options)
                 pygame.time.delay(150)
-            elif keys[pygame.K_RETURN]:  # Enter para seleccionar
-                self.handle_option_selected()
+            #  La selección se maneja en main.py
 
 
     def handle_option_selected(self):
@@ -119,4 +128,3 @@ class DialogueManager:
                 self.last_update_time = pygame.time.get_ticks()
             else:
                 self.current_dialogue = None  # Termina el diálogo
-

@@ -11,6 +11,9 @@ class Map:
         self.base_map = self.generate_base_map()
         self.color_map = self.generate_color_map() # Mapa de colores
         self.tileset = self.load_tileset() # Carga los tiles
+        self.light_surface = pygame.Surface((tile_size * 3, tile_size * 3), pygame.SRCALPHA)  # Superficie para la iluminación
+        pygame.draw.circle(self.light_surface, (255, 255, 255, 50), (tile_size * 1.5, tile_size * 1.5), tile_size * 1.5)
+
 
     def generate_base_map(self):
         # Genera un mapa base usando Perlin Noise
@@ -70,6 +73,10 @@ class Map:
                 tile_image = self.tileset[color_level][tile_type]
                 screen.blit(tile_image, (x * self.tile_size - camera_x, y * self.tile_size - camera_y))
 
+                # Dibuja la superficie de luz (si es necesario)
+                if color_level > 0:
+                    screen.blit(self.light_surface, (x * self.tile_size - camera_x - self.tile_size, y * self.tile_size - camera_y - self.tile_size))
+
     def illuminate(self, center_x, center_y, radius, level):
         # Ilumina el área alrededor de un punto (x, y) con un radio y nivel de iluminación
         start_x = max(0, int(center_x - radius))
@@ -81,7 +88,8 @@ class Map:
             for y in range(start_y, end_y):
                 distance = ((x - center_x) ** 2 + (y - center_y) ** 2) ** 0.5
                 if distance <= radius:
-                    self.color_map[y][x] = min(level, 1)  # Asegura que no exceda el nivel máximo
+                    #  En lugar de cambiar el nivel de color, simplemente marcamos que debe dibujarse la luz
+                    self.color_map[y][x] = 1
 
     def is_walkable(self, x, y):
         # Ejemplo simple: el agua no es caminable

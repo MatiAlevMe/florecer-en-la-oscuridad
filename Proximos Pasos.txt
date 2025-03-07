@@ -28,6 +28,8 @@ Próximos Pasos:
     - [x] Crear una clase o funciones para mostrar texto en la pantalla en formato novela visual al avanzar en la historia.
     - [x] Implementar la lógica para mostrar diálogos secuenciales con opciones de elección que por el momento no tendrán repercusiones en la historia mas que entregar distintas respuestas.
     - [x] Implementar el formato de novela visual del dialogo
+    - [x] Opcion de avanzar texto con enter
+    - [x] Opcion de seleccionar opciones con espacio
 
 5. Implementar el sistema de batallas RPG (battle.py - *Nuevo archivo*):
     - [ ] Crear un nuevo archivo `battle.py`.
