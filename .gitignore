@@ -1,2 +1,8 @@
-.aider*
-.env
+# Common
+env/
+__pycache__/
+*.pyc
+.DS_Store
+
+# Others 
+.*
